@@ -38,7 +38,7 @@ const LoginPage = () => {
         </div>
         <div className="mr-2">
           <p className="max-sm:text-sm max-md:text-xs">
-            Don't have an Account ?{" "}
+            Don&apos;t have an Account ?
             <span>
               <Link href="/register">Register</Link>
             </span>
