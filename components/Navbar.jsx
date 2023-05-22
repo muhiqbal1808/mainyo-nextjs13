@@ -28,33 +28,45 @@ const Navbar2 = () => {
       <nav className="navbar container mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="md:hidden btn btn-ghost">
+            <label
+              onClick={() => setOpen((open) => !open)}
+              tabIndex={0}
+              className="md:hidden btn btn-ghost"
+            >
               <HiOutlineMenuAlt2 className="text-2xl" />
             </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/tournaments">Tournament</Link>
-              </li>
-              <li>
-                <Link href="/forum">Forum</Link>
-              </li>
-              <li>
-                <Link href="/shop">Shop</Link>
-              </li>
-            </ul>
+            <div className={`${open ? 'block' : 'hidden'}`}>
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 sticky"
+              >
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+                <li>
+                  <Link href="/tournaments">Tournament</Link>
+                </li>
+                <li>
+                  <Link href="/forum">Forum</Link>
+                </li>
+                <li>
+                  <Link href="/shop">Shop</Link>
+                </li>
+                <li>
+                  <Link href="/article">Articles</Link>
+                </li>
+              </ul>
+            </div>
           </div>
           <Image
-            src="/image/logo-nav.png"
-            width={90}
+            src="/image/Logo-Only.png"
+            width={30}
             height={50}
             alt="Logonav"
           />
+          <h1 className="font-bold text-xl ml-2">
+            MainYo <span className="hidden md:inline">ID</span>
+          </h1>
         </div>
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1">
@@ -70,17 +82,24 @@ const Navbar2 = () => {
             <li>
               <Link href="/shop">Shop</Link>
             </li>
+            <li>
+                  <Link href="/article">Articles</Link>
+                </li>
           </ul>
         </div>
         <div className="navbar-end flex items-center gap-4">
           <div>
-            <Link href="/login" className="btn btn-sm">
-              Login
+            <Link href="/login" className="btn btn-sm btn-ghost">
+             Login <span className="hidden lg:inline">&Register</span>
             </Link>
           </div>
           <div className="mt-1">
             <label className="swap swap-rotate">
-              <input type="checkbox" onChange={handleToggle} checked={theme == "bumblebee" ? false : true}/>
+              <input
+                type="checkbox"
+                onChange={handleToggle}
+                checked={theme == "bumblebee" ? false : true}
+              />
 
               <svg
                 className="swap-on fill-current w-6 h-6"
